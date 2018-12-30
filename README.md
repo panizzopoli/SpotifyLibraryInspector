@@ -1,2 +1,0 @@
-# SpotifyLibraryInspector
-Created with CodeSandbox
