@@ -2,10 +2,15 @@ import "./styles.css";
 import SpotifyWebApi from "spotify-web-api-js";
 
 document.getElementById("app").innerHTML = `
-<h1>Spotify Library Inspector!</h1>
+<h1>Spotify Library Inspector</h1>
 <div>
-  We use Parcel to bundle this sandbox, you can find more info about Parcel
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+  <p>You have 0 full albums in your library.</p>
+   <p>The artist of your library albums are</p>
+   <p>The genres of your album's library are </p>
+   <p>Average Popularity of your Albums</p>
+   <p>The less popular album is </p>
+   <p>Albums from the eighties</p>
+   <p>Do you have any jazz album in your library?</p>
 </div>
 `;
 const accessToken =
@@ -32,7 +37,7 @@ spotifyApi.getMySavedAlbums({ limit, offset: 0 }).then(
     const pages = data.total;
     libraryAlbums.push(...data.items);
     const promises = libPromises(pages);
-    Promise.all(promises).then(() => console.log(data));
+    Promise.all(promises).then(() => console.log(libraryAlbums));
   },
   function(err) {
     console.error(err);
